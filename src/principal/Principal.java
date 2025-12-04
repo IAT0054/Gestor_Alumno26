@@ -161,25 +161,6 @@ public class Principal {
         System.out.print("Nueva fecha nacimiento (AAAA-MM-DD): ");
         LocalDate fecha = Util.introducirFecha();
 
-        // Update all instances (since name/dob should be consistent for the same
-        // person)
-        // But wait, requirements say "Modificar los datos de un alumno".
-        // If they are in two cycles, they are the same person, so name/dob should
-        // change for both.
-        // However, 'repetidor' status might differ per cycle? The prompt says
-        // "repetidor/a (atributo boolean)".
-        // Usually repetition is per course/cycle. So I should ask which one to modify
-        // if there are two?
-        // Or maybe just modify common data?
-        // "No se modificará el ciclo".
-        // Let's assume we update common fields (Name, Date) for all, but what about
-        // 'repetidor'?
-        // It's likely specific to the enrollment.
-        // If there are two enrollments, I should probably ask which one to modify OR
-        // modify both if the user wants?
-        // Given the simplicity, I'll update Name and Date for ALL entries of that NIF.
-        // For 'repetidor', I will ask for each cycle found.
-
         for (Alumno a : encontrados) {
             a.setNombre(nombre);
             a.setFechaNacimiento(fecha);
